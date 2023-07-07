@@ -3,10 +3,14 @@ import storage from "redux-persist/lib/storage";
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import errors_server from "./errors-server";
 import {burger} from "./burger";
+import {auth} from "./auth";
+import {user} from "./user";
 
 const rootReducer = combineReducers({
+  auth,
   burger,
   errors_server,
+  user,
 });
 
 const persistConfig = {
@@ -14,8 +18,10 @@ const persistConfig = {
   storage,
   /** Не сохранять при обновлении страницы */
   blacklist: [
+    "auth",
     "errors_server",
     "burger",
+    "user",
   ],
 };
 
