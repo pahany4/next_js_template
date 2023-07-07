@@ -4,9 +4,16 @@ import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
 import {pageview} from "../lib/gtm";
 import Crisp from "../components/crisp/crisp";
+import SuperTokensReact, {SuperTokensWrapper} from "supertokens-auth-react";
+import * as SuperTokensConfig from "../config/superTokensConfig";
 import {Provider} from "react-redux";
 import {Preloader} from "../components/preloader/preloader";
 import {store} from "./../reducers/index";
+
+if (typeof window !== "undefined") {
+  SuperTokensReact.init(SuperTokensConfig.frontendConfig());
+}
+
 
 function MyApp({Component, pageProps}) {
   const [loading, setLoading] = useState(false);
@@ -32,17 +39,20 @@ function MyApp({Component, pageProps}) {
     });
   }, []);
   return (
-    <Provider store={store}>
-      <Layout>
-        {
-          // Если загружается то показываем прелоадер
-          loading && <Preloader/>
-        }
+    <SuperTokensWrapper>
+      <Provider store={store}>
+        <Layout>
+          {
+            // Если загружается то показываем прелоадер
+            loading && <Preloader/>
+          }
 
-        <Component {...pageProps} />
-        {process.env.NEXT_PUBLIC_STAGE_DEPlOY === "production" && process.env.NEXT_PUBLIC_CRISP_WEBSITE_ID && <Crisp/>}
-      </Layout>
-    </Provider>
+          <Component {...pageProps} />
+          {process.env.NEXT_PUBLIC_STAGE_DEPlOY === "production" && process.env.NEXT_PUBLIC_CRISP_WEBSITE_ID &&
+            <Crisp/>}
+        </Layout>
+      </Provider>
+    </SuperTokensWrapper>
   );
 }
 
