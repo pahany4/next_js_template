@@ -1,0 +1,4 @@
+User-agent: Googlebot
+Disallow: /404
+Allow: /
+Sitemap: https://odvn.ru/sitemap.xml

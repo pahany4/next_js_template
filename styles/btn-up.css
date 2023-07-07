@@ -1,0 +1,25 @@
+.btn-up {
+    position: fixed;
+    right: 3rem;
+    bottom: 2rem;
+    border-radius: 100%;
+    background: linear-gradient(var(--gradient));
+    padding: 0.5rem;
+    border: none;
+    cursor: pointer;
+}
+.back-to-top-icon {
+    width: 2rem;
+    height: 2rem;
+    color: #fff;
+}
+
+.btn-up_hide {
+    display: none;
+}
+
+@media (min-width: 1180px) {
+    .btn-up:hover {
+        opacity: 80%;
+    }
+}

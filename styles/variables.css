@@ -1,0 +1,28 @@
+:root {
+  --gradient: 269.07deg, #0094A2 -34.89%, #1DB567 99.79%;
+  --color-warning: #CB1B1B;
+  --color-first: #1DB567;
+  --color-first-hover: #0094A2;
+
+  /** основной цвет текста */
+  --text-color: #171717;
+
+  /** серый цвет теста на белом фоне */
+  --text-color-second: #363434;
+
+  /** серый цвет теста на зеленом фоне */
+  --text-color-light: #EBEBEB;
+
+  --text-small: 16px;
+  --text-medium: 18px;
+  --text-large: 20px;
+  --text-extra-large: 32px;
+
+  --indent-small: 10px;
+  --indent-medium: 20px;
+  --indent-large: 40px;
+
+  --roboto: "Roboto", sans-serif;
+
+  --line-height: 1.21
+}
